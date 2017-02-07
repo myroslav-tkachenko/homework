@@ -98,21 +98,23 @@ echo "Полная стоимость с учетом всего {$all}\n";
         <td><?php echo "\$$all"; ?></td>
     </tr>
 </table>
-<?php
-$first_name = 'Yulii';
-$last_name = 'Tarutin';
-$name = "$last_name $first_name";
-echo "Получилось - $name\n";
-echo "Количество символов в строке ".iconv_strlen($name)."\n";
-for($i = 1; $i <= 5; $i ++){
-    echo $i."\n";
-}
+    <?php
+        $first_name = 'Yulii';
+        $last_name = 'Tarutin';
+        $name = "$last_name $first_name";
+        echo "Получилось - $name\n";
+        echo "Количество символов в строке ".iconv_strlen($name)."\n";
+    
+        for ($i=1; $i<6; ++$i)
+            echo "i = $i\n";
 
-for($i = 1; $i <= 5; $i ++){
-    echo (pow(2, $i))."\n";
-}
+        echo "<p>";
 
 
+        for ($j=2; $j<=32; $j*=2){
+            echo "j = $j\n";
+
+        }
 
 
 
