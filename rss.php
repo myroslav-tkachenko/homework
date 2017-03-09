@@ -1,5 +1,5 @@
 <?php
-
+// * * * * * php /var/www/test.com/html/pages/rss.php - выполняем каждую минуту с помощью CRONTAB
 include_once __DIR__ . '/../vendor/autoload.php';
 include_once __DIR__ . '/../core/functions.php';
 
