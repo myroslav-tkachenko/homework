@@ -1,7 +1,11 @@
 <?php
-// * * * * * php /var/www/test.com/html/pages/rss.php - выполняем каждую минуту с помощью CRONTAB
 include_once __DIR__ . '/../vendor/autoload.php';
 include_once __DIR__ . '/../core/functions.php';
+
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+$log = new Logger('name');
+$log->pushHandler(new StreamHandler('log/info.log', Logger::INFO));
 
 
 $sql = "INSERT INTO rss (title, link, description, pub_date) VALUES (?, ?, ?, ?)";
@@ -25,7 +29,7 @@ $checklink = pdodb()->prepare($checklinksql);
 
 
 
-
+$count = 0;
 foreach ($items as $item) {
     try {
         //print_r('<pre>'.(__FILE__).':'.(__LINE__).'<hr />'.print_r( $item, true).'</pre>');
@@ -41,6 +45,7 @@ foreach ($items as $item) {
                 $item->get_description(),
                 $item->get_date("Y-m-d H:i:s"),
             ]);
+
         }
 
 
@@ -49,6 +54,7 @@ foreach ($items as $item) {
         echo ' failed: ' . $e->getMessage();
     }
 
-}
+}$count++;
+$log->info($count."dobavil");
 ?>
 
