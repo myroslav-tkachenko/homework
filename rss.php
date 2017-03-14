@@ -8,7 +8,7 @@ $log = new Logger('name');
 $log->pushHandler(new StreamHandler('log/info.log', Logger::INFO));
 
 
-$sql = "INSERT INTO rss (title, link, description, pub_date) VALUES (?, ?, ?, ?)";
+$sql = "INSERT IGNORE INTO rss (title, link, description, pub_date) VALUES (?, ?, ?, ?)";
 
 
 
